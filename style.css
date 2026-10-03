@@ -388,3 +388,18 @@ line-height: 1.5;
 margin: 0;
 }
 
+.cv-button {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #ffffff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.cv-button:hover {
+    opacity: 0.85;
+}
+
+
