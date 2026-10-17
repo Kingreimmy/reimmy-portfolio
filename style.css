@@ -388,18 +388,112 @@ line-height: 1.5;
 margin: 0;
 }
 
-.cv-button {
+
+Contact additions · CSS
+/* ===== Contact additions: save next to style.css ===== */
+ 
+/* Hero buttons sit side by side */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+}
+ 
+.btn-whatsapp {
     display: inline-block;
-    padding: 10px 24px;
-    background: #ffffff;
-    color: #000;
-    text-decoration: none;
-    border-radius: 6px;
+    padding: 12px 24px;
+    background: #25d366;
+    color: #fff;
     font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, .4);
+}
+ 
+/* Keeps the new <h1> looking like your old <h4> name.
+   If your style.css styles ".home-info h4", copy those rules here for .hero-name */
+.hero-name {
+    font-size: inherit;
+    margin: 0;
+}
+ 
+/* Contact section */
+#contact { text-align: center; }
+ 
+.contact-intro { margin-bottom: 28px; }
+ 
+.contact-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+ 
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1 1 240px;
+    padding: 18px 22px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, .15);
+    background: rgba(255, 255, 255, .05);
+    color: inherit;
+    text-decoration: none;
+    text-align: left;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.contact-card span { display: flex; flex-direction: column; }
+.contact-card small { opacity: .8; }
+.contact-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0, 0, 0, .25); }
+.contact-card.whatsapp:hover { border-color: #25d366; color: #25d366; }
+.contact-card.email:hover    { border-color: #ea4335; color: #ea4335; }
+.contact-card.phone:hover    { border-color: #4da3ff; color: #4da3ff; }
+ 
+/* Floating WhatsApp button */
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+    z-index: 999;
+    animation: wa-pulse 2.2s infinite;
+}
+.whatsapp-float:hover { transform: scale(1.08); }
+ 
+@keyframes wa-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, .6); }
+    70%  { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+    .whatsapp-float { animation: none; }
 }
 
-.cv-button:hover {
-    opacity: 0.85;
+.left .hero-name {
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    color: var(--white);
+    margin-bottom: 18px;
+    font-weight: 700;
+    line-height: 1.1;
 }
 
-
+@media (max-width: 560px) {
+    .left .hero-name { font-size: 2.2rem; }
+}
